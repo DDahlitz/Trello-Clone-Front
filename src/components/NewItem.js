@@ -11,7 +11,6 @@ const NewItem = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         props.handleCreateItems(item)
-        item.useraccount = props.user.id
         setItem({title: '', description: ''})
     }
 

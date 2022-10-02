@@ -8,7 +8,7 @@ import NewList from './components/NewList'
 import EditList from './components/EditList'
 
 import NewItem from './components/NewItem'
-
+import EditItem from './components/EditItem'
 
 
 const App = () => {
@@ -72,7 +72,24 @@ const getItems = () => {
 const handleCreateItems = (addItem) => {
   axios.post('https://stark-dusk-04018.herokuapp.com/api/items/', addItem)
     .then((response) => {
-      setItems([...items, response.data])
+      setItems ([...items, response.data])
+    })
+}
+
+const handleDeleteItems = (deletedItems) => {
+  axios.delete('https://stark-dusk-04018.herokuapp.com/api/items/' + deletedItems.id)
+  .then ((response) => {
+    setItems (items.filter( item => item.id !== deletedItems.id))
+  })
+}
+
+const handleUpdateItems = (editItem) => {
+  axios
+    .put('https://stark-dusk-04018.herokuapp.com/api/items/' + editItem.id, editItem)
+    .then((response) => {
+      setItems(items.map((item) => {
+        return item.id !== editItem.id ? item : editItem
+      }))
     })
 }
 
@@ -93,8 +110,8 @@ const handleCreateItems = (addItem) => {
           return(
             <div key={board.id}>
               <h1>{board.title}</h1>
-              <h3>{board.description}</h3>
-
+              <h2>{board.description}</h2>
+              <div className="column">
                 {lists.map((list) => {
                   return(
                     <div key={list.id}>
@@ -110,18 +127,24 @@ const handleCreateItems = (addItem) => {
                       .map((item) => {
                         return(
                           <div key={item.id}>
-                            <h4>{item.title}</h4>
-                            <h5>{item.description}</h5>
+                            <h5>{item.title}</h5>
+                            <h6>{item.description}</h6>
+                            <EditItem handleUpdateItems={handleUpdateItems} item={item}/>
+                            <button onClick={() => {handleDeleteItems(item)}} value={item.id}>Delete</button>
                           </div>
                         )
                       })}
+                      <br/>
                       Add a New Item To the List
                       <NewItem list={list} handleCreateItems={handleCreateItems}/>
                     </div>
                   )
                 })}
-                <h4>Add a New List</h4>
-                <NewList board={board} handleCreateLists={handleCreateLists}/>
+                <div>
+                  <h4>Add a New List</h4>
+                  <NewList board={board} handleCreateLists={handleCreateLists}/>
+                </div>
+                </div>
             </div>
           )
         })}
@@ -137,5 +160,3 @@ export default App;
 
 // Frontend
   // https://rocky-caverns-64581.herokuapp.com/
-
-
