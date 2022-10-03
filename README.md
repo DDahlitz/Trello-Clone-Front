@@ -27,4 +27,4 @@ This website was made with:
 ##### Approach taken
 
 This project was used to work on the interaction between tables and nesting items with effective interaction. The use of foreign key was crucial to getting all tables linked appropriately.  
-Eventually user authentication, user permissions, react-draggable, react-router, redux, and sass will be implemented to continue pushing forward and learning new technologies.
+Eventually user authentication, user permissions, react-draggable, react-router, redux, and sass will be implemented to continue pushing forward, learning new methods/technologies, and continually improving this project.
