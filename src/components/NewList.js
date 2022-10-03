@@ -21,9 +21,9 @@ const NewList = (props) => {
                     {list.board = props.board.id}
                 </div>
                 <label htmlFor="title">Title: </label>
-                <input type="text" name="title" value={list.title} onChange={handleChange} />
+                <input className="rounded border-black" type="text" name="title" value={list.title} onChange={handleChange} />
                     <br />
-                <input type="submit"/>
+                <input className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit"/>
             </form>
         </>
     )

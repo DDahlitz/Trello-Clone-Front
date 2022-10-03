@@ -17,12 +17,12 @@ const EditItem = (props) => {
                 <summary>Edit Item</summary>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="title">Title:</label>
-                    <input type="text" name = "title" value = {item.title} onChange={handleChange} />
+                    <input className="rounded border-gray-300" type="text " name = "title" value = {item.title} onChange={handleChange} />
                     <br/>
                     <label htmlFor="description">Description:</label>
-                    <input type="text" name="description" value={item.description} onChange={handleChange}/>
+                    <input className="rounded mt-2 border-gray-300" type="text" name="description" value={item.description} onChange={handleChange}/>
                     <br/>
-                    <input type="submit"/> 
+                    <input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type="submit"/> 
                 </form>
             </details>
         </>

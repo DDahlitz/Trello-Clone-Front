@@ -105,20 +105,19 @@ const handleUpdateItems = (editItem) => {
 
 
   return (
-    <div className="App">
+    <div className="App bg-teal-400">
         {boards.map((board) => {
           return(
-            <div key={board.id}>
-              <h1 className="text-gray-900 text-xl leading-tight font-medium mb-2">{board.title}</h1>
+            <div className="board " key={board.id}>
+              <h1 className="text-gray-900 text-xl font-bold leading-tight font-medium mb-2">{board.title}</h1>
               <h2>{board.description}</h2>
-              <div className="column">
+              <div className="flex flex-wrap text-center justify-around">
                 {lists.map((list) => {
                   return(
-                    <div className="max-w-sm rounded overflow-hidden shadow-lg" key={list.id}>
+                    <div className="mt-4 p-1 space-y-2 bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg" key={list.id}>
                       <h3 className ="font-bold text-xl mb-2">{list.title}</h3>
+                      <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded" onClick={() => {handleDeleteLists(list)}} value={list.id}>Delete</button>
                       <EditList handleUpdateLists={handleUpdateLists} list={list}/>
-                      <button onClick={() => {handleDeleteLists(list)}} value={list.id}>Delete</button>
-
                       {items.filter((item) => {
                         if (item.list == list.id){
                           return item
@@ -129,8 +128,8 @@ const handleUpdateItems = (editItem) => {
                           <div key={item.id}>
                             <h5 className="text-gray-700 text-base">{item.title}</h5>
                             <h6 className="text-gray-700 text-base">{item.description}</h6>
+                            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded" onClick={() => {handleDeleteItems(item)}} value={item.id}>Delete</button>
                             <EditItem handleUpdateItems={handleUpdateItems} item={item}/>
-                            <button onClick={() => {handleDeleteItems(item)}} value={item.id}>Delete</button>
                           </div>
                         )
                       })}
@@ -140,7 +139,7 @@ const handleUpdateItems = (editItem) => {
                     </div>
                   )
                 })}
-                <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                <div className="mt-4 p-1 space-y-2 bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg ">
                   <h4>Add a New List</h4>
                   <NewList board={board} handleCreateLists={handleCreateLists}/>
                 </div>

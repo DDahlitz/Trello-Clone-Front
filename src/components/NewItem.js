@@ -21,12 +21,12 @@ const NewItem = (props) => {
                     {item.list = props.list.id}
                 </div>
                 <label htmlFor="title">Title: </label>
-                <input type="text" name="title" value={item.title} onChange={handleChange} />
+                <input className="rounded border-black" type="text" name="title" value={item.title} onChange={handleChange} />
                     <br />
                 <label htmlFor="description">Description: </label>
-                <input type="text" name="description" value={item.description} onChange={handleChange} />
+                <input className="rounded mt-2 border-black" type="text" name="description" value={item.description} onChange={handleChange} />
                     <br />
-                <input type="submit"/>
+                <input className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded" type="submit"/>
             </form>
         </>
     )
