@@ -47,8 +47,6 @@ const handleDeleteLists = (deletedLists) => {
   })
 }
 
-//wait for TA hours to get help
-//Moving on to the items until it opens
 const handleUpdateLists = (editList) => {
   axios
     .put('https://stark-dusk-04018.herokuapp.com/api/lists/' + editList.id, editList)
@@ -152,10 +150,3 @@ const handleUpdateItems = (editItem) => {
 }
 
 export default App;
-
-
-// Backend
-  // https://stark-dusk-04018.herokuapp.com/
-
-// Frontend
-  // https://rocky-caverns-64581.herokuapp.com/

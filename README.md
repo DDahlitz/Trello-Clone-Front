@@ -2,11 +2,19 @@
 
 ### Front End Github
 
+https://github.com/DDahlitz/Trello-Clone-Front
+
 ### Back End Github
+
+https://github.com/DDahlitz/Trello_Clone_Backend
 
 ### Front End Heroku
 
+https://rocky-caverns-64581.herokuapp.com/
+
 ### Back End Heroku
+
+https://stark-dusk-04018.herokuapp.com/
 
 Can add lists and add as many items to each list as necessary.
 If the list is deleted, all items inside of the list is deleted as well.
