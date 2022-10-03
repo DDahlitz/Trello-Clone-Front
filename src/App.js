@@ -109,13 +109,13 @@ const handleUpdateItems = (editItem) => {
         {boards.map((board) => {
           return(
             <div key={board.id}>
-              <h1>{board.title}</h1>
+              <h1 className="text-gray-900 text-xl leading-tight font-medium mb-2">{board.title}</h1>
               <h2>{board.description}</h2>
               <div className="column">
                 {lists.map((list) => {
                   return(
-                    <div key={list.id}>
-                      <h3>{list.title}</h3>
+                    <div className="max-w-sm rounded overflow-hidden shadow-lg" key={list.id}>
+                      <h3 className ="font-bold text-xl mb-2">{list.title}</h3>
                       <EditList handleUpdateLists={handleUpdateLists} list={list}/>
                       <button onClick={() => {handleDeleteLists(list)}} value={list.id}>Delete</button>
 
@@ -127,8 +127,8 @@ const handleUpdateItems = (editItem) => {
                       .map((item) => {
                         return(
                           <div key={item.id}>
-                            <h5>{item.title}</h5>
-                            <h6>{item.description}</h6>
+                            <h5 className="text-gray-700 text-base">{item.title}</h5>
+                            <h6 className="text-gray-700 text-base">{item.description}</h6>
                             <EditItem handleUpdateItems={handleUpdateItems} item={item}/>
                             <button onClick={() => {handleDeleteItems(item)}} value={item.id}>Delete</button>
                           </div>
@@ -140,7 +140,7 @@ const handleUpdateItems = (editItem) => {
                     </div>
                   )
                 })}
-                <div>
+                <div className="max-w-sm rounded overflow-hidden shadow-lg">
                   <h4>Add a New List</h4>
                   <NewList board={board} handleCreateLists={handleCreateLists}/>
                 </div>
